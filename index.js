@@ -56,9 +56,9 @@ client.on('debug', console.log);
 
 // MongoDB using 5e-bits for all the content
 async function dbmanin() {
-	const {MongoClient} = require('mongodb');
+	const { MongoClient, ServerApiVersion } = require('mongodb');
   const uri = "mongodb+srv://"+process.env.dbuser+":"+process.env.dbpass+"@"+process.env.dbclusterurl+"/?retryWrites=true&w=majority";
-  const client = new MongoClient(uri);
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
   try {
     // Connect to the MongoDB cluster
