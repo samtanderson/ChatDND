@@ -1,4 +1,7 @@
-﻿//Importing all needed Commands
+﻿﻿//Importing all needed Commands
+const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
+const fs = require("fs"); //this package is for reading files and getting their inputs
+const colors = require("colors"); //this Package is used, to change the colors of our Console! (optional and doesnt effect performance)
 const express = require("express");
 const app = express();
 
@@ -16,13 +19,7 @@ const database = require('./database/connection');
 database.dbmanin().catch(console.error);
 
 // Check for any additions to 5e database
-["command", "collections"].forEach(collection => {
-  require(`./collections/${collection}`);
-});
-
-const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
-const colors = require("colors"); //this Package is used, to change the colors of our Console! (optional and doesnt effect performance)
-const fs = require("fs"); //this package is for reading files and getting their inputs
+const collections = fs.readdirSync("./collections/");
 
 //Creating the Discord.js Client for This Bot with some default settings ;) and with partials, so you can fetch OLD messages
 const client = new Discord.Client({
