@@ -52,3 +52,15 @@ try{
 // Used to debug sharding
 // If receiving error "preparing hit on gateway discord 429 hit on route", use "kill 1" in terminal
 client.on('debug', console.log);
+
+// MongoDB using 5e-bits for all the content
+var MongoClient = require('mongodb').MongoClient;
+var mongoclient = new MongoClient(new Server("localhost", 27017), {native_parser: true});
+
+// Open the connection to the server
+mongoclient.open(function(err, mongoclient) {
+  if (err) throw err;
+  var db = mongoclient.db("prod");
+  console.log("Connected to database!");
+  db.close();
+});
