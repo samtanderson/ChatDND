@@ -1,7 +1,6 @@
 ﻿//Importing all needed Commands
 const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
 const express = require("express");
-const database = require('./database/connection.js');
 const app = express();
 
 //Creates frontend for keepalive monitoring
@@ -14,7 +13,8 @@ app.get("/", (req, res) => {
 })
 
 // Connect to our database
-require('./database/connection.js');
+const database = require('./database/connection');
+database.dbmanin().catch(console.error);
 
 const colors = require("colors"); //this Package is used, to change the colors of our Console! (optional and doesnt effect performance)
 const fs = require("fs"); //this package is for reading files and getting their inputs
