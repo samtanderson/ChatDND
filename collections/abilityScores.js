@@ -1,4 +1,7 @@
-var request = require ('request')
+var request = require ('request');
+const database = require('./database/connection');
+
+database.connect();
 
 module.exports = {
     Request: function () {
@@ -10,5 +13,8 @@ module.exports = {
                 ? console.log (body)
                 : console.log (error)
         })
+
+        const collection = database.db.collection('abilityScores');
+        collection.find().toArray().then(result => console.log(result));
     }
 }

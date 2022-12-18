@@ -14,10 +14,7 @@ app.get("/", (req, res) => {
   res.send("Bot is alive!");
 })
 
-// Connect to our database
-const database = require('./database/connection');
-database.dbmanin().catch(console.error);
-
+// Update our database (if needed)
 const dbupdate = require('./database/update');
 
 //Creating the Discord.js Client for This Bot with some default settings ;) and with partials, so you can fetch OLD messages
