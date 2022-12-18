@@ -54,8 +54,9 @@ try{
 client.on('debug', console.log);
 
 // MongoDB using 5e-bits for all the content
-var MongoClient = require('mongodb').MongoClient;
-var mongoclient = new MongoClient(new Server("localhost", 27017), {native_parser: true});
+const MongoClient = require('mongodb').MongoClient;
+const Server = require('mongodb').Server;
+const mongoclient = new MongoClient(new Server("localhost", 27017), {native_parser: true});
 
 // Open the connection to the server
 mongoclient.open(function(err, mongoclient) {
