@@ -37,5 +37,18 @@ client.cooldowns = new Discord.Collection(); //an collection for cooldown comman
     require(`./handlers/${handler}`)(client);
 });
 
+// Display a message when the bot comes online
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
 //login into the bot
-client.login(process.env.token);
+try{
+  client.login(process.env.token);
+}catch (e) {
+  console.log(String(e.stack).red);
+}
+
+// Used to debug sharding
+// If receiving error "preparing hit on gateway discord 429 hit on route", use "kill 1" in terminal
+client.on('debug', console.log);
