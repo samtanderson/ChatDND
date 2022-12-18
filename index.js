@@ -26,4 +26,4 @@ client.cooldowns = new Discord.Collection(); //an collection for cooldown comman
 });
 
 //login into the bot
-client.login(require("./botconfig/config.json").token);
+client.login(process.env.token);
