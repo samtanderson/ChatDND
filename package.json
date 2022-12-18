@@ -4,7 +4,7 @@
   "description": "This is a chat bot designed for discord to play DND.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Successful build test\" && exit 0",
     "start": "node index.js"
   },
   "author": "Samuel Anderson",

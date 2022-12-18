@@ -1,5 +1,7 @@
 # ChatDND
 
+[![Node.js](https://github.com/samtanderson/ChatDND/actions/workflows/node.js.yml/badge.svg)](https://github.com/samtanderson/ChatDND/actions/workflows/node.js.yml)
+
 ## Description:
 
 This is a chat bot designed for discord to play DND.
