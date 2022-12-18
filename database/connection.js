@@ -12,7 +12,7 @@ module.exports = {
             console.log("Connected to database!");
 
             // Make the appropriate DB calls
-            await  listDatabases(client);
+            await this.listDatabases(client);
 
         } catch (e) {
             console.error(e);
@@ -20,7 +20,7 @@ module.exports = {
             await client.close();
         }
     },
-    listDatabases: async function(client){
+    listDatabases: async function(client) {
         databasesList = await client.db().admin().listDatabases();
 
         console.log("Databases:");
