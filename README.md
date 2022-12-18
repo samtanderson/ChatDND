@@ -13,3 +13,7 @@ NONE!
 ## Author
 
 Samuel Anderson
+
+## Credits
+
+Bot Template by Tomato#6966 | https://github.com/Tomato6966/Discord-Js-Handler-Template
