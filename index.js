@@ -25,5 +25,8 @@ client.cooldowns = new Discord.Collection(); //an collection for cooldown comman
     require(`./handlers/${handler}`)(client);
 });
 
+//Creates frontend for keepalive monitoring
+require('http').createServer((req, res) => res.end('Bot is alive!')).listen(3000);
+
 //login into the bot
 client.login(process.env.token);
