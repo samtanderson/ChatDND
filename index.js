@@ -57,7 +57,7 @@ client.on('debug', console.log);
 // MongoDB using 5e-bits for all the content
 async function dbmanin() {
 	const {MongoClient} = require('mongodb');
-  const uri = "mongodb+srv://"+process.env.dbuser+":"+process.env.dbpass+"@"+process.env.dbcluserurl+"/test?retryWrites=true&w=majority";
+  const uri = "mongodb+srv://"+process.env.dbuser+":"+process.env.dbpass+"@"+process.env.dbclusterurl+"/test?retryWrites=true&w=majority";
   const client = new MongoClient(uri);
 
   try {
