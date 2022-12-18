@@ -2,6 +2,17 @@
 const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
 const colors = require("colors"); //this Package is used, to change the colors of our Console! (optional and doesnt effect performance)
 const fs = require("fs"); //this package is for reading files and getting their inputs
+const express = require("express");
+const app = express();
+
+//Creates frontend for keepalive monitoring
+app.listen(3000, () => {
+  console.log("Bot is alive!")
+})
+
+app.get("/", (req, res) => {
+  res.send("Hello world!");
+})
 
 //Creating the Discord.js Client for This Bot with some default settings ;) and with partials, so you can fetch OLD messages
 const client = new Discord.Client({
@@ -24,9 +35,6 @@ client.cooldowns = new Discord.Collection(); //an collection for cooldown comman
 ["command", "events"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
-
-//Creates frontend for keepalive monitoring
-require('http').createServer((req, res) => res.end('Bot is alive!')).listen(3000);
 
 //login into the bot
 client.login(process.env.token);
