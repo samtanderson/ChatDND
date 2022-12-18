@@ -3,7 +3,7 @@ var request = require ('request')
 module.exports = {
     Request: function () {
         request ({
-            url: 'https://raw.githubusercontent.com/5e-bits/5e-database/main/src/5e-SRD-Equipment.json',
+            url: 'https://raw.githubusercontent.com/5e-bits/5e-database/main/src/5e-SRD-Equipment-Categories.json',
             json: true
         }, (error, response, body) => {
             !error && response.statusCode === 200
