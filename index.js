@@ -18,8 +18,7 @@ app.get("/", (req, res) => {
 const database = require('./database/connection');
 database.dbmanin().catch(console.error);
 
-// Check for any additions to 5e database
-const collections = fs.readdirSync("./collections/");
+const dbupdate = require('./database/update');
 
 //Creating the Discord.js Client for This Bot with some default settings ;) and with partials, so you can fetch OLD messages
 const client = new Discord.Client({
