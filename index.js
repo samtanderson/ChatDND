@@ -1,6 +1,7 @@
 ﻿//Importing all needed Commands
 const Discord = require("discord.js"); //this is the official discord.js wrapper for the Discord Api, which we use!
 const express = require("express");
+const database = require('./database/connection.js');
 const app = express();
 
 //Creates frontend for keepalive monitoring
@@ -11,6 +12,9 @@ app.listen(3000, () => {
 app.get("/", (req, res) => {
   res.send("Bot is alive!");
 })
+
+// Connect to our database
+require('./database/connection.js');
 
 const colors = require("colors"); //this Package is used, to change the colors of our Console! (optional and doesnt effect performance)
 const fs = require("fs"); //this package is for reading files and getting their inputs
@@ -39,7 +43,7 @@ client.cooldowns = new Discord.Collection(); //an collection for cooldown comman
 
 // Display a message when the bot comes online
 client.on("ready", () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+  console.log(`Ready and online as ${client.user.tag}!`);
 });
 
 //login into the bot
@@ -52,34 +56,3 @@ try{
 // Used to debug sharding
 // If receiving error "preparing hit on gateway discord 429 hit on route", use "kill 1" in terminal
 client.on('debug', console.log);
-
-
-// MongoDB using 5e-bits for all the content
-async function dbmanin() {
-	const { MongoClient, ServerApiVersion } = require('mongodb');
-  const uri = "mongodb+srv://"+process.env.dbuser+":"+process.env.dbpass+"@"+process.env.dbclusterurl+"/?retryWrites=true&w=majority";
-  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-
-  try {
-    // Connect to the MongoDB cluster
-    await client.connect();
-    console.log("Connected to database!");
-
-    // Make the appropriate DB calls
-    await  listDatabases(client);
-
-  } catch (e) {
-      console.error(e);
-  } finally {
-      await client.close();
-  }
-}
-
-async function listDatabases(client){
-  databasesList = await client.db().admin().listDatabases();
-
-  console.log("Databases:");
-  databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
-
-dbmanin().catch(console.error);
