@@ -10,6 +10,10 @@ To add bot, use this [link](https://discord.com/api/oauth2/authorize?client_id=1
 
 NONE!
 
+## Bot Status
+
+https://stats.uptimerobot.com/mgDnVfp7MD
+
 ## Author
 
 Samuel Anderson
