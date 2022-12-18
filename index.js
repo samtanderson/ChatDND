@@ -53,15 +53,26 @@ try{
 // If receiving error "preparing hit on gateway discord 429 hit on route", use "kill 1" in terminal
 client.on('debug', console.log);
 
-// MongoDB using 5e-bits for all the content
-const MongoClient = require('mongodb').MongoClient;
-const Server = require('mongodb').Server;
-const mongoclient = new MongoClient(new Server("localhost", 27017), {native_parser: true});
 
-// Open the connection to the server
-mongoclient.open(function(err, mongoclient) {
-  if (err) throw err;
-  var db = mongoclient.db("prod");
-  console.log("Connected to database!");
-  db.close();
-});
+// MongoDB using 5e-bits for all the content
+async function dbmanin() {
+	const {MongoClient} = require('mongodb');
+  const uri = "mongodb+srv://"+process.env.dbuser+":"+process.env.dbpass+"@"+process.env.dbcluserurl+"/test?retryWrites=true&w=majority";
+  const client = new MongoClient(uri);
+
+  try {
+    // Connect to the MongoDB cluster
+    await client.connect();
+    console.log("Connected to database!");
+
+    // Make the appropriate DB calls
+    await  listDatabases(client);
+
+  } catch (e) {
+      console.error(e);
+  } finally {
+      await client.close();
+  }
+}
+
+dbmanin().catch(console.error);
