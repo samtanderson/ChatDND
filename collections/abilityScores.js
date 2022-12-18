@@ -1,5 +1,5 @@
 var request = require ('request');
-const database = require('./database/connection');
+const database = require('../database/connection');
 
 database.connect();
 
