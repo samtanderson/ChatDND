@@ -13,8 +13,7 @@
     "ascii-table": "0.0.9",
     "discord.js": "^12.5.1",
     "express": "^4.18.2",
-    "mongodb": "^4.12.1",
-    "sync-request": "^6.1.0"
+    "mongodb": "^4.12.1"
   },
   "devDependencies": {
     "ascii-table": "0.0.9",
