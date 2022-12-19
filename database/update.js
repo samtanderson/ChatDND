@@ -25,7 +25,10 @@ const subraces = require('../collections/subraces');
 const traits = require('../collections/traits');
 const weaponProperties = require('../collections/weaponProperties');
 
-await indexes.buildIndexes();
+// We need a way to make sure this runs before all the other updates
+// For now, commenting them out in bulk for the first run works well enough
+indexes.buildIndexes(); 
+
 abilityScores.Request();
 alignments.Request();
 backgrounds.Request();

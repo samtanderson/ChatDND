@@ -5,6 +5,7 @@ var db = dbconnect.getDb();
 
 module.exports = {
     Request: function () {
+        console.log('Starting Conditions Update')
         request ({
             url: 'https://raw.githubusercontent.com/5e-bits/5e-database/main/src/5e-SRD-Conditions.json',
             json: true
@@ -22,5 +23,6 @@ module.exports = {
                 }
             }
         })
+        console.log('Finshed Conditions Update')
     }
 }
