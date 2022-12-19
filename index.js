@@ -15,7 +15,10 @@ app.get("/", (req, res) => {
 })
 
 // Update our database (if needed)
-const dbupdate = require('./database/update');
+const dbconnect = require('./database/connection');
+dbconnect.connectToServer( function( err, clt ) {
+  if (err) console.log(err);
+  const dbupdate = require('./database/update');
 
 //Creating the Discord.js Client for This Bot with some default settings ;) and with partials, so you can fetch OLD messages
 const client = new Discord.Client({
@@ -54,3 +57,5 @@ try{
 // Used to debug sharding
 // If receiving error "preparing hit on gateway discord 429 hit on route", use "kill 1" in terminal
 client.on('debug', console.log);
+
+});

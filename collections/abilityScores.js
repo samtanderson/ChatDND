@@ -1,7 +1,8 @@
 var request = require ('request');
-const database = require('../database/connection');
+const dbconnect = require('../database/connection');
 
-database.connect();
+var db = dbconnect.getDb();
+var response;
 
 module.exports = {
     Request: function () {
@@ -10,11 +11,10 @@ module.exports = {
             json: true
         }, (error, response, body) => {
             !error && response.statusCode === 200
-                ? console.log (body)
-                : console.log (error)
+                ? (response = body)
+                : console.log(error)
         })
 
-        const collection = database.db.collection('abilityScores');
-        collection.find().toArray().then(result => console.log(result));
+        db.collection('abilityScores').update({ }, [ response ], { multi: true });
     }
 }
