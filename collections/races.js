@@ -13,10 +13,6 @@ module.exports = {
                 console.log(error)
             } else {
                 if (body.length > 0) {
-                    // Create index before insert
-                    try {
-                        db.collection('races').createIndex({"index":1},{ unique: true } );
-                    } catch (e) { } // Index already exists
 
                     for (var node in body) {
                         for(var attributename in body[node]){

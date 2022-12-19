@@ -1,3 +1,4 @@
+const indexes = require('./indexes');
 const abilityScores = require('../collections/abilityScores');
 const alignments = require('../collections/alignments');
 const backgrounds = require('../collections/backgrounds');
@@ -24,6 +25,7 @@ const subraces = require('../collections/subraces');
 const traits = require('../collections/traits');
 const weaponProperties = require('../collections/weaponProperties');
 
+await indexes.buildIndexes();
 abilityScores.Request();
 alignments.Request();
 backgrounds.Request();
