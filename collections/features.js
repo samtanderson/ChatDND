@@ -1,4 +1,7 @@
-var request = require ('request')
+var request = require ('request');
+const dbconnect = require('../database/connection');
+
+var db = dbconnect.getDb();
 
 module.exports = {
     Request: function () {
@@ -6,9 +9,22 @@ module.exports = {
             url: 'https://raw.githubusercontent.com/5e-bits/5e-database/main/src/5e-SRD-Features.json',
             json: true
         }, (error, response, body) => {
-            !error && response.statusCode === 200
-                ? console.log (body)
-                : console.log (error)
+            if(error || response.statusCode != 200){
+                console.log(error)
+            } else {
+                if (body.length > 0) {
+                    // Create index before insert
+                    try {
+                        db.collection('features').createIndex({"index":1},{ unique: true } );
+                    } catch (e) { } // Index already exists
+
+                    for (var node in body) {
+                        for(var attributename in body[node]){
+                            db.collection('features').updateOne({ "index": body[node]['index'] }, { $set:{ [attributename] : body[node][attributename]  } }, { upsert: true })
+                        }
+                    } 
+                }
+            }
         })
     }
 }

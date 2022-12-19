@@ -19,7 +19,9 @@ module.exports = {
                     } catch (e) { } // Index already exists
 
                     for (var node in body) {
-                        db.collection('abilityScores').updateOne({ "index": body[node] }, body[node], { upsert: true })
+                        for(var attributename in body[node]){
+                            db.collection('abilityScores').updateOne({ "index": body[node]['index'] }, { $set:{ [attributename] : body[node][attributename]  } }, { upsert: true })
+                        }
                     } 
                 }
             }
