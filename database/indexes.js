@@ -4,7 +4,7 @@ var db = dbconnect.getDb();
 
 // Build our indexes before we do any inserts
 module.exports = {
-    buildIndexes: function () {
+    buildIndexes: async function (callback) {
         console.log('Building database indexes')
         try {
             db.collection('abilityScores').createIndex({"index":1},{ unique: true } );
@@ -105,6 +105,5 @@ module.exports = {
         try {
             db.collection('weaponProperties').createIndex({"index":1},{ unique: true } );
         } catch (e) { } // Index already exists
-        console.log('Finished building database indexes')
     }
 }

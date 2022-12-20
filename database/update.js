@@ -27,30 +27,132 @@ const weaponProperties = require('../collections/weaponProperties');
 
 // We need a way to make sure this runs before all the other updates
 // For now, commenting them out in bulk for the first run works well enough
-indexes.buildIndexes(); 
+indexes.buildIndexes( function(err, clt) {
+    if (err) console.log(err);
+    console.log('Finished building database indexes')
 
-abilityScores.Request();
-alignments.Request();
-backgrounds.Request();
-classes.Request();
-conditions.Request();
-damageTypes.Request();
-equipment.Request();
-equipmentCategories.Request();
-feats.Request();
-features.Request();
-languages.Request();
-levels.Request();
-magicItems.Request();
-magicSchools.Request();
-monsters.Request();
-proficiencies.Request();
-races.Request();
-rules.Request();
-ruleSections.Request();
-skills.Request();
-spells.Request();
-subclasses.Request();
-subraces.Request();
-traits.Request();
-weaponProperties.Request();
+    abilityScores.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Ability Score Update')
+    });
+
+    alignments.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Alignments Update')
+    });
+
+    backgrounds.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Backgrounds Update')
+    });
+
+    classes.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Classes Update')
+    });
+
+    conditions.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Conditions Update')
+    });
+
+    damageTypes.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Damage Types Update')
+    });
+
+    equipment.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Equipment Update')
+    });
+
+    equipmentCategories.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Equipment Categories Update')
+    });
+
+    feats.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Feats Update')
+    });
+
+    features.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Features Update')
+    });
+
+    languages.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Languages Update')
+    });
+    
+    levels.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Levels Update')
+    });
+
+    magicItems.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Magic Items Update')
+    });
+
+    magicSchools.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Magic Schools Update')
+    });
+
+    monsters.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Monsters Update')
+    });
+
+    proficiencies.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Proficiencies Update')
+    });
+
+    races.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Races Update')
+    });
+
+    rules.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Rules Update')
+    });
+
+    ruleSections.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Rule Sections Update')
+    });
+
+    skills.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Skills Update')
+    });
+
+    spells.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Spells Update')
+    });
+
+    subclasses.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Subclasses Update')
+    });
+
+    subraces.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Subraces Update')
+    });
+
+    traits.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Traits Update')
+    });
+
+    weaponProperties.Request( function(err, clt) {
+        if (err) console.log(err);
+        console.log('Finshed Weapon Properties Update')
+    });
+}); 

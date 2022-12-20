@@ -4,7 +4,7 @@ const dbconnect = require('../database/connection');
 var db = dbconnect.getDb();
 
 module.exports = {
-    Request: function () {
+    Request: async function () {
         console.log('Starting Languages Update')
         request ({
             url: 'https://raw.githubusercontent.com/5e-bits/5e-database/main/src/5e-SRD-Languages.json',
@@ -23,6 +23,6 @@ module.exports = {
                 }
             }
         })
-        console.log('Finshed Languages Update')
+        return callback();
     }
 }

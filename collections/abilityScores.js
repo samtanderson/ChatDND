@@ -4,7 +4,7 @@ const dbconnect = require('../database/connection');
 var db = dbconnect.getDb();
 
 module.exports = {
-    Request: function () {
+    Request: async function (callback) {
         console.log('Starting Ability Score Update')
         request ({
             url: 'https://raw.githubusercontent.com/5e-bits/5e-database/main/src/5e-SRD-Ability-Scores.json',
@@ -23,6 +23,6 @@ module.exports = {
                 }
             }
         })
-        console.log('Finshed Ability Score Update')
+        return callback();
     }
 }

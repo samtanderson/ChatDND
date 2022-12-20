@@ -4,7 +4,7 @@ const dbconnect = require('../database/connection');
 var db = dbconnect.getDb();
 
 module.exports = {
-    Request: function () {
+    Request: async function () {
         console.log('Starting Equipment Update')
         request ({
             url: 'https://raw.githubusercontent.com/5e-bits/5e-database/main/src/5e-SRD-Equipment.json',
@@ -23,6 +23,6 @@ module.exports = {
                 }
             }
         })
-        console.log('Finshed Equipment Update')
+        return callback();
     }
 }
