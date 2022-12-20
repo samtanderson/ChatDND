@@ -105,5 +105,6 @@ module.exports = {
         try {
             db.collection('weaponProperties').createIndex({"index":1},{ unique: true } );
         } catch (e) { } // Index already exists
+        return callback();
     }
 }
