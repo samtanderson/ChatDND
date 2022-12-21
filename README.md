@@ -1,4 +1,8 @@
-# ChatDND
+# Project Closed as of 12/20/2022
+
+DnDBeyond has released their own discord bot, [Avrae](https://avrae.io/). Use this instead.
+
+## ChatDND
 
 [![Node.js](https://github.com/samtanderson/ChatDND/actions/workflows/node.js.yml/badge.svg)](https://github.com/samtanderson/ChatDND/actions/workflows/node.js.yml)
 
